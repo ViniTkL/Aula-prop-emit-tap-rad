@@ -21,7 +21,6 @@ const pessoas = ref([
 ])
 
   const handleForm = (nome, cpf, categoria) => {
-    alert(`${nome} ${cpf} ${categoria}`);
     const pessoaNova = {nome, cpf, categoria}
 
     pessoas.value[pessoas.value.length] = pessoaNova;
