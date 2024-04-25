@@ -1,7 +1,8 @@
 <script setup>
 import Formulario from './components/Formulario.vue';
 import Tabela from './components/Tabela.vue';
-const pessoas = [
+import {ref} from 'vue';
+const pessoas = ref([
   {
     nome: 'Pessa',
     cpf: '111.111.111-11',
@@ -17,11 +18,14 @@ const pessoas = [
     cpf: '025.658.111-45',
     categoria: 'C'
   }
-]
+])
 
-const handleForm = (nome, cpf, categoira) => {
-  alert(`${nome} ${cpf} ${categoira}`);
-}
+  const handleForm = (nome, cpf, categoria) => {
+    alert(`${nome} ${cpf} ${categoria}`);
+    const pessoaNova = {nome, cpf, categoria}
+
+    pessoas.value[pessoas.value.length] = pessoaNova;
+  }
 </script>
 
 <template>
