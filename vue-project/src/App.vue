@@ -1,6 +1,6 @@
 <script setup>
+import Formulario from './components/Formulario.vue';
 import Tabela from './components/Tabela.vue';
-
 const pessoas = [
   {
     nome: 'Pessa',
@@ -18,10 +18,15 @@ const pessoas = [
     categoria: 'C'
   }
 ]
+
+const handleForm = (nome, cpf, categoira) => {
+  alert(`${nome} ${cpf} ${categoira}`);
+}
 </script>
 
 <template>
   <main>
+    <Formulario @salvar-pessoa="handleForm()"/>
     <Tabela  :pessoas="pessoas"/>
   </main>
 </template>
