@@ -26,7 +26,7 @@ const handleForm = (nome, cpf, categoira) => {
 
 <template>
   <main>
-    <Formulario @salvar-pessoa="handleForm()"/>
+    <Formulario @salvar-pessoa="handleForm"/>
     <Tabela  :pessoas="pessoas"/>
   </main>
 </template>
