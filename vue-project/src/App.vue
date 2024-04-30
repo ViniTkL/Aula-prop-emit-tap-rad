@@ -1,7 +1,7 @@
 <script setup>
 import Formulario from './components/Formulario.vue';
 import Tabela from './components/Tabela.vue';
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 const pessoas = ref([
   {
     nome: 'Pessa',
@@ -26,6 +26,15 @@ const pessoas = ref([
 
     pessoas.value[pessoas.value.length] = pessoaNova;
   }
+
+  onMounted(async () => {
+     await fetch('https://pokeapi.co/api/v2/pokemon')
+    .then(result => result.json())
+    .then(result2 => {
+      pessoas.value = result2.results
+    });
+  })
+
 </script>
 
 <template>
